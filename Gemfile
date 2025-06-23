@@ -67,8 +67,8 @@ gem "omniauth-rails_csrf_protection", "~> 1.0"
 
 
 gem "twitter", "~> 8.2"
-gem 'faraday'
-gem 'simple_oauth'
+gem "faraday"
+gem "simple_oauth"
 
 
 

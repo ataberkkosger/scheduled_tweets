@@ -5,4 +5,4 @@ Rails.application.config.middleware.use OmniAuth::Builder do
 end
 
 # GET isteğine izin ver (csrf_protection gem'i için)
-OmniAuth.config.allowed_request_methods = [:post, :get]
+OmniAuth.config.allowed_request_methods = [ :post, :get ]

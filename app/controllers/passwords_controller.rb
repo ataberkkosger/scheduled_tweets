@@ -5,10 +5,10 @@ class PasswordsController < ApplicationController
 
   def update
     if Current.user.update(password_params)
-      redirect_to root_path, notice:"parola değiştirildi"
+      redirect_to root_path, notice: "parola değiştirildi"
     else
       render :edit
-  end
+    end
 end
 
   private
@@ -16,5 +16,4 @@ end
   def password_params
     params.require(:user).permit(:password, :password_confirmation)
   end
-
 end

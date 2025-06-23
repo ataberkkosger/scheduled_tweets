@@ -6,7 +6,7 @@ class RegistrationsController < ApplicationController
   @user = User.new(user_params)
 
   if @user.save
-    session[:user_id] = @user.id 
+    session[:user_id] = @user.id
     redirect_to root_path, notice: "Kayıt başarılı!"
   else
     render :new, status: :unprocessable_entity
@@ -19,4 +19,3 @@ end
     params.require(:user).permit(:email, :password, :password_confirmation)
   end
 end
-
