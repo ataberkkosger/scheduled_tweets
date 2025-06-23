@@ -1,0 +1,25 @@
+<%= form_with model: @tweet do |form| %>
+  <%= render "shared/form_errors", form: form %>
+  <div class = "mb-3">
+    <%= form.label :x_hesabı_id %>
+    <%= form.collection_select :twitter_account_id, Current.user.twitter_accounts, :id, :username, {}, { class: "form-control"}%>
+    <%= link_to "x hesabını bağla", "/auth/twitter"%>
+  </div>
+
+  <div class = "mb-3">
+    <%= form.label :Metin%>
+    <%= form.text_area :body, class: "form-control" %>
+  </div>
+
+  <div class = "mb-3">
+    <%=form.label :Gönderilecek_Tarih%>
+    <div class = "form-control">
+      <%= form.datetime_select :publish_at%>
+    </div>
+  </div>
+  <%= form.button "Onayla", class:"btn btn-primary"%>
+   <% if form.object.persisted? %>
+  <%= link_to "Sil", form.object, data: { turbo_method: :delete, turbo_confirm: "Emin misiniz?" }, class: "btn btn-outline-danger" %>
+<% end %>
+
+<% end %>

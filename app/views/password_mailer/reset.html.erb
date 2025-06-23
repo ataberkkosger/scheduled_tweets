@@ -1,0 +1,7 @@
+merhaba <%= params[:user].email%>
+
+bir şifre sıfırlama isteği aldık.
+şifrenizi sıfırlamak için aşağıdaki bağlantıya tıklayın. 15 dk içerisinde kaybolacak.
+
+
+<%= password_reset_edit_url(token: @token)%>

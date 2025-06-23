@@ -1,0 +1,12 @@
+<div class = "d-flex justify-content-between align-items-center">
+  <h1>Gönderiler</h1>
+  <% if Current.user.twitter_accounts.any? %>
+   <%= link_to "gönderi planla", new_tweet_path, class: "btn btn-primary"%>
+  <% end %>
+</div>
+
+<% if Current.user.twitter_accounts.none? %>
+  <%= link_to "X Hesabını Bağla", "/auth/twitter", class: "btn btn-primary"%>
+<% end %>
+ 
+<%= render @tweets%>

@@ -1,0 +1,17 @@
+<div class = "mb-3 card card-body">
+  <%= tweet.body %>
+  <div class="me-4">
+    <%= image_tag tweet.twitter_account.image, class: "rounded-circle" %>
+    <%= link_to "@#{tweet.twitter_account.username}", "https://twitter.com/#{tweet.twitter_account.username}", target: :_blank %>
+
+    <% if tweet.published? %>
+      <%= link_to "twiti görüntüle", "https://x.com/#{tweet.twitter_account.username}/status/#{tweet.tweet_id}", target: :_blank%>
+      <%= link_to "Sil", tweet_path(tweet), data: { turbo_method: :delete, turbo_confirm: "Emin misiniz?" }, class: "btn btn-outline-danger" %>
+  
+    <% else %>
+      Şu tarihte gönderilecek: <%= l tweet.publish_at, format: :long%>
+      <%= link_to "Düzenle", edit_tweet_path(tweet)%>
+    <% end %>
+    
+  </div>
+</div>
